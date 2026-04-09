@@ -1,193 +1,505 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>My Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Stanley Nwajagu · Senior Data Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+    :root {
+      --bg:      #0a0a0a;
+      --bg2:     #111111;
+      --bg3:     #181818;
+      --line:    rgba(255,255,255,0.08);
+      --accent:  #c8f04a;
+      --text:    #f0ede8;
+      --muted:   #888880;
+      --sans:    'Roboto', sans-serif;
+      --mono:    'Roboto Mono', monospace;
+    }
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>NWAJAGU STANLEY IFEANYI</h1>
-						<p>I specialize in transforming raw data into actionable insights that drive strategic business decisions. 
-						With expertise in Python, SQL, Power BI, Tableau and Excel. I design analytical solutions, automate workflows, 
-						and build interactive dashboards that empower organizations to unlock growth opportunities. 
-						My work bridges technical excellence with clear business impact.</p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    ul { list-style: none; }
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">PROJECTS</a>
-					</header>
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 5vw;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-logo { font-size: 1.1rem; font-weight: 700; color: var(--text); }
+    .nav-logo span { font-weight: 300; color: var(--accent); }
+    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+    .nav-links a { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--text); }
+    .nav-hire { padding: 0.5rem 1.3rem; border: 1px solid var(--accent); color: var(--accent) !important; border-radius: 2px; transition: background 0.2s, color 0.2s !important; }
+    .nav-hire:hover { background: var(--accent) !important; color: var(--bg) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 22px; height: 1.5px; background: var(--text); }
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">MY PROJECTS</a></li>
-							<li><a href="generic.html">ABOUT ME</a></li>
-							<li><a href="elements.html">CONTACT ME</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="http://www.linkedin.com/in/stanley-nwajagu" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="https://x.com/dataworm_xlsx?s=21&t=PS5UwDEfFGkkr9UE-61qHA" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="https://github.com/NStanley0524" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+    /* ── Mobile menu ── */
+    .mob-menu { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { font-size: 1.8rem; font-weight: 700; color: var(--muted); transition: color 0.2s; }
+    .mob-menu a:hover { color: var(--accent); }
+    .mob-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.4rem; color: var(--muted); cursor: pointer; }
 
-				<!-- Main -->
-					<div id="main">
+    /* ── Hero ── */
+    #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 5rem; border-bottom: 1px solid var(--line); }
+    .hero-left { padding: 6vw 5vw 5vw; display: flex; flex-direction: column; justify-content: space-between; border-right: 1px solid var(--line); }
+    .hero-tag { font-family: var(--mono); font-size: 0.72rem; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 2rem; }
+    .hero-name { font-size: clamp(3rem, 6vw, 6rem); font-weight: 900; line-height: 1.0; letter-spacing: -0.02em; color: var(--text); }
+    .hero-name span { display: block; font-weight: 300; color: var(--accent); }
+    .hero-role { margin-top: 1.8rem; font-size: 1rem; color: var(--muted); font-weight: 300; max-width: 400px; line-height: 1.85; }
+    .hero-role strong { color: var(--text); font-weight: 500; }
+    .hero-btns { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; padding-top: 2.5rem; border-top: 1px solid var(--line); margin-top: 4rem; }
+    .btn-fill { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bg); background: var(--accent); padding: 0.85rem 1.8rem; border-radius: 2px; transition: opacity 0.2s, transform 0.2s; }
+    .btn-fill:hover { opacity: 0.85; transform: translateY(-2px); }
+    .btn-line { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .btn-line:hover { color: var(--text); border-color: var(--text); }
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transform: scale(0.95); filter: contrast(0.95) brightness(0.9); transition: transform 0.4s ease, filter 0.4s ease; }
+    .hero-right:hover img { filter: grayscale(0%); }
+    .hero-right-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,10,10,0.7), rgba(10,10,10,0.2)); }
+    .hero-stats { position: absolute; bottom: 2rem; left: 2rem; right: 2rem; display: flex; gap: 1.2rem; flex-wrap: wrap; }
+    .hstat { background: rgba(10,10,10,0.8); backdrop-filter: blur(10px); border: 1px solid var(--line); padding: 0.8rem 1.1rem; border-radius: 4px; text-align: center; }
+    .hstat-num { font-size: 1.5rem; font-weight: 900; color: var(--accent); line-height: 1; }
+    .hstat-lbl { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.2rem; }
 
-						<!-- Featured Post -->
-							<article class="post featured">
-								<header class="major">
-									<h2><a href="#">Financial Database Management</a></h2>
-									<p>Built and managed a comprehensive financial database system using SQL, designed to streamline the storage, retrieval, and analysis of financial transactions. 
-										The database supports complex queries, ensuring efficient data handling and improved decision-making for financial analysts.</p>
-								</header>
-								<a href="#" class="image main"><img src="images/Database.jpg" alt="" /></a>
-								<ul class="actions special">
-									<li><a href="https://github.com/NStanley0524/Financial_Database_Management_SQL" class="button large">More Details</a></li>
-								</ul>
-							</article>
+    /* ── Marquee ── */
+    .marquee-strip { background: var(--accent); overflow: hidden; white-space: nowrap; padding: 0.9rem 0; }
+    .marquee-track { display: inline-flex; align-items: center; animation: marquee 35s linear infinite; }
+    .marquee-track:hover { animation-play-state: paused; }
+    .marquee-item { font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bg); white-space: nowrap; padding: 0 0.5rem; }
+    .marquee-star { color: var(--bg); font-size: 0.6rem; opacity: 0.5; padding: 0 1rem; flex-shrink: 0; }
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-						<!-- Posts -->
-							<section class="posts">
-								<article>
-									<header>
-										<h2><a href="#">Customer Segmentation Analysis</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/customer-segmentation-social.png" alt="" /></a>
-									<p>Performed customer segmentation analysis using Python, utilizing K-Means clustering to identify distinct customer groups based on purchasing behavior and demographics. 
-										The analysis empowered businesses to tailor marketing strategies and improve customer targeting, 
-										ultimately enhancing customer retention and driving growth.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/NStanley0524/Customer_Segmentation_Analysis_Python" class="button">More Details</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="#">Automated Stock Market Analytics</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/Stock Market Analytics.jpg" alt="" /></a>
-									<p>Developed a Python-powered pipeline to scrape real-time stock data from Yahoo Finance
-									 and generate dynamic Excel dashboards with visualizations via OpenPyXL. 
-									This automation reduces manual reporting effort by 80% and equips stakeholders with instant, 
-									data-driven insights into market performance.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/NStanley0524/Stock_Data_Automation_Python" class="button">More Details</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="#">Healthcare Operations and Efficiency Analytics</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/Hospital Analytics2.png" alt="" /></a>
-									<p>Built an interactive dashboard for hospital operations, analyzing patient visits, departmental performance, doctor workloads, and treatment outcomes
-										 using a clean data model, Power Query, and DAX to deliver actionable insights.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/NStanley0524/Healthcare_Analytics_Power_BI" class="button">More Details</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<h2><a href="#">Student and Course Performance Analytics</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/EduTech Analytics.jpeg" alt="" /></a>
-									<p>Developed a Power BI dashboard for LearnSphere, delivering student lifecycle, course, instructor, and 
-										financial analytics to optimize academic outcomes, instructor performance, and institutional revenue.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/NStanley0524/EduTech_Analytics_Power_BI" class="button">More Details</a></li>
-									</ul>
-								</article>
-							</section>
+    /* ── Section helpers ── */
+    .section-wrap { padding: 6rem 5vw; }
+    .section-wrap.alt { background: var(--bg2); }
+    .s-label { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .s-heading { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; line-height: 1.1; letter-spacing: -0.02em; }
+    .s-heading span { font-weight: 300; color: var(--accent); }
+    .s-sub { font-size: 0.95rem; color: var(--muted); max-width: 520px; line-height: 1.9; margin-top: 1rem; }
+    hr.rule { border: none; border-top: 1px solid var(--line); margin: 0; }
 
-						<!-- Footer -->
-						 	<footer>
-								<div class="cta">
-									<ul class="actions special">
-									<li><a href="https://github.com/NStanley0524" target="_blank" class="button">See More</a></li>
-									</ul>
-								</div>
-						 	</footer>
-							
-					</div>
+    /* ── What I Do ── */
+    #whatido { border-bottom: 1px solid var(--line); }
+    .whatido-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5vw; align-items: start; padding-top: 3rem; }
+    .whatido-copy p { font-size: 0.92rem; color: var(--muted); line-height: 1.95; margin-bottom: 1.2rem; }
+    .whatido-copy p strong { color: var(--text); font-weight: 500; }
+    .whatido-copy a { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); border-bottom: 1px solid var(--accent); padding-bottom: 2px; margin-top: 1rem; transition: opacity 0.2s; }
+    .whatido-copy a:hover { opacity: 0.7; }
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); }
+    .svc { padding: 1.7rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); transition: background 0.2s; }
+    .svc:nth-child(even) { border-right: none; }
+    .svc:nth-last-child(-n+2) { border-bottom: none; }
+    .svc:hover { background: var(--bg3); }
+    .svc-num { font-family: var(--mono); font-size: 0.63rem; color: var(--accent); letter-spacing: 0.15em; margin-bottom: 0.5rem; }
+    .svc-name { font-size: 0.92rem; font-weight: 700; line-height: 1.3; }
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p>Lagos, Nigeria.</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="tel:+2348130251501">(+234)-8130-2515-01</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="mailto:nwajagustanley@gmail.com">nwajagustanley@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="http://www.linkedin.com/in/stanley-nwajagu" class="icon brands alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
-									<li><a href="https://x.com/dataworm_xlsx?s=21&t=PS5UwDEfFGkkr9UE-61qHA" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="https://github.com/NStanley0524" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+    /* ── Projects ── */
+    #projects { border-bottom: 1px solid var(--line); }
+    .proj-header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 2.5rem; border-bottom: 1px solid var(--line); flex-wrap: wrap; gap: 1rem; }
+    .proj-header a { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .proj-header a:hover { color: var(--accent); border-color: var(--accent); }
+    .feat-wrap { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
+    .feat-img { position: relative; overflow: hidden; aspect-ratio: 4/3; border-right: 1px solid var(--line); }
+    .feat-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+    .feat-wrap:hover .feat-img img { transform: scale(1.04); }
+    .feat-body { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+    .p-tag { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .p-title { font-size: 1.7rem; font-weight: 900; line-height: 1.2; margin-bottom: 0.8rem; }
+    .p-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.3rem; }
+    .p-tools { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.8rem; }
+    .ptag { font-family: var(--mono); font-size: 0.68rem; padding: 0.22rem 0.6rem; border: 1px solid var(--line); color: var(--muted); border-radius: 2px; }
+    .p-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); transition: gap 0.2s; }
+    .p-link:hover { gap: 0.9rem; }
+    .proj-row { display: grid; grid-template-columns: 220px 1fr 40px; align-items: center; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--line); transition: padding 0.2s, background 0.2s; }
+    .proj-row:last-child { border-bottom: none; }
+    .proj-row:hover { background: var(--bg2); padding-left: 1rem; padding-right: 1rem; margin: 0 -1rem; }
+    .pr-img { width: 220px; height: 138px; overflow: hidden; border-radius: 3px; flex-shrink: 0; }
+    .pr-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+    .proj-row:hover .pr-img img { transform: scale(1.06); }
+    .pr-tag { font-family: var(--mono); font-size: 0.65rem; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.35rem; }
+    .pr-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem; }
+    .pr-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
+    .pr-tools { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.6rem; }
+    .pr-arrow { color: var(--muted); font-size: 1rem; transition: color 0.2s, transform 0.2s; flex-shrink: 0; }
+    .proj-row:hover .pr-arrow { color: var(--accent); transform: translateX(4px); }
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; 2026</li><li>All rights reserved</a></li></ul>
-					</div>
+    /* ── About ── */
+    #about { border-bottom: 1px solid var(--line); }
+    .about-grid { display: grid; grid-template-columns: 1.1fr 1fr; }
+    .about-text { padding: 5rem 5vw 5rem 0; border-right: 1px solid var(--line); }
+    .about-text p { font-size: 0.92rem; color: var(--muted); line-height: 1.95; margin-bottom: 1.2rem; }
+    .about-text p strong { color: var(--text); font-weight: 500; }
+    .about-list { margin: 2rem 0; border: 1px solid var(--line); }
+    .ahl { display: flex; align-items: center; gap: 1.2rem; padding: 1rem 1.2rem; border-bottom: 1px solid var(--line); transition: background 0.2s; }
+    .ahl:last-child { border-bottom: none; }
+    .ahl:hover { background: var(--bg3); }
+    .ahl i { color: var(--accent); width: 16px; font-size: 0.85rem; }
+    .ahl-text { font-size: 0.85rem; color: var(--muted); }
+    .ahl-text strong { color: var(--text); font-weight: 600; display: block; }
+    .about-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+    .about-img-col { position: relative; overflow: hidden; }
+    .about-img-col img { width: 100%; height: 100%; object-fit: cover; object-position: center top; transform: scale(0.95); filter: brightness(0.9) contrast(0.95); transition: transform 0.4s ease, filter 0.4s ease; }
+    .about-img-col::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.5),transparent); }
+    .about-badge { position: absolute; bottom: 2rem; left: 2rem; background: var(--accent); color: var(--bg); padding: 1rem 1.3rem; border-radius: 3px; text-align: center; line-height: 1.2; }
+    .about-badge .big { font-size: 2rem; font-weight: 900; display: block; }
+    .about-badge .sml { font-size: 0.62rem; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.1em; }
 
-			</div>
+    /* ── Contact ── */
+    #contact { border-bottom: 1px solid var(--line); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: start; padding-top: 3rem; }
+    .c-item { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
+    .c-item i { color: var(--accent); width: 16px; font-size: 0.85rem; }
+    .c-item a, .c-item span { font-size: 0.9rem; color: var(--muted); transition: color 0.2s; }
+    .c-item a:hover { color: var(--accent); }
+    .social-row { display: flex; gap: 0.65rem; margin-top: 2rem; }
+    .soc-btn { width: 40px; height: 40px; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.9rem; border-radius: 2px; transition: border-color 0.2s, color 0.2s, transform 0.2s; }
+    .soc-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-3px); }
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 0.72rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 0.5rem; }
+    .form-group input, .form-group textarea { width: 100%; padding: 0.75rem 0; background: transparent; border: none; border-bottom: 1px solid var(--line); color: var(--text); font-family: var(--sans); font-size: 0.9rem; outline: none; resize: none; transition: border-color 0.2s; }
+    .form-group input:focus, .form-group textarea:focus { border-color: var(--accent); }
+    .form-group textarea { height: 100px; }
+    .form-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .btn-submit { display: inline-flex; align-items: center; gap: 0.6rem; margin-top: 1.5rem; padding: 0.85rem 2rem; background: var(--accent); color: var(--bg); font-family: var(--sans); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; border: none; border-radius: 2px; cursor: pointer; transition: opacity 0.2s, transform 0.2s; }
+    .btn-submit:hover { opacity: 0.85; transform: translateY(-2px); }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    /* ── Footer ── */
+    footer { padding: 2rem 5vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--line); }
+    .foot-brand { font-size: 1rem; font-weight: 700; }
+    .foot-brand span { font-weight: 300; color: var(--accent); }
+    .foot-links { display: flex; gap: 2rem; }
+    .foot-links a { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; transition: color 0.2s; }
+    .foot-links a:hover { color: var(--accent); }
+    .foot-copy { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); }
 
-	</body>
+    /* ── Reveal ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { height: 60vw; }
+      .hero-left { border-right: none; padding: 6rem 5vw 3rem; }
+      .feat-wrap { grid-template-columns: 1fr; }
+      .feat-img { border-right: none; border-bottom: 1px solid var(--line); aspect-ratio: 16/9; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-img-col { height: 70vw; }
+      .about-text { border-right: none; padding-right: 0; padding-bottom: 3rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .whatido-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .proj-row { grid-template-columns: 1fr; }
+      .pr-img { width: 100%; height: 200px; }
+      .pr-arrow { display: none; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 5vw; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .section-wrap { padding: 4rem 5vw; }
+      .services-grid { grid-template-columns: 1fr; }
+      .svc { border-right: none !important; }
+      .svc:not(:last-child) { border-bottom: 1px solid var(--line) !important; }
+      footer { flex-direction: column; text-align: center; }
+      .form-row2 { grid-template-columns: 1fr; }
+      .hero-stats { gap: 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile menu -->
+  <div class="mob-menu" id="mob">
+    <i class="fas fa-times mob-close" onclick="document.getElementById('mob').classList.remove('open')"></i>
+    <a href="#whatido" onclick="document.getElementById('mob').classList.remove('open')">What I Do</a>
+    <a href="#projects" onclick="document.getElementById('mob').classList.remove('open')">Projects</a>
+    <a href="#about" onclick="document.getElementById('mob').classList.remove('open')">About</a>
+    <a href="#contact" onclick="document.getElementById('mob').classList.remove('open')">Contact</a>
+  </div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">My <span>Portfolio</span></div>
+    <div class="nav-links">
+      <a href="#whatido">What I Do</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="nav-hire">Contact Me</a>
+    </div>
+    <div class="hamburger" onclick="document.getElementById('mob').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-left">
+      <div>
+        <div class="hero-tag">I Turn Complex Data Into Clear, Actionable Decisions</div>
+        <h1 class="hero-name">
+          Data & BI Analyst.
+          <span>Driving Real Business Impact.</span>
+          Results Backed by Data
+        </h1>
+        <p class="hero-role">
+          With <strong>4+ years</strong> of experience across healthcare, finance, Edutech, Retail, Marketing and operations, I help teams turn raw data into insights that actually drive action.
+          I build automated reporting systems, design dashboards for decision-makers, and focus on delivering clarity, efficiency, and measurable business impact.
+        </p>
+      </div>
+      <div class="hero-btns">
+        <a href="#projects" class="btn-fill"><i class="fas fa-chart-bar"></i> See My Work</a>
+        <a href="#contact" class="btn-line">Get in Touch →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="images/ALV07899.jpg" alt="Stanley Nwajagu" />
+      <div class="hero-right-overlay"></div>
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-num">4+</div>
+          <div class="hstat-lbl">Yrs Experience</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">500+</div>
+          <div class="hstat-lbl">Trained</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">18+</div>
+          <div class="hstat-lbl">Data Tools and Stack</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-num">20+</div>
+          <div class="hstat-lbl">Business Projects Delivered</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span class="marquee-item">Excel</span><span class="marquee-star">✦</span><span class="marquee-item">SQL</span><span class="marquee-star">✦</span><span class="marquee-item">Power BI</span><span class="marquee-star">✦</span><span class="marquee-item">Tableau</span><span class="marquee-star">✦</span><span class="marquee-item">Looker Studio</span><span class="marquee-star">✦</span><span class="marquee-item">Metabase</span><span class="marquee-star">✦</span><span class="marquee-item">Redash</span><span class="marquee-star">✦</span><span class="marquee-item">n8n</span><span class="marquee-star">✦</span><span class="marquee-item">Python</span><span class="marquee-star">✦</span><span class="marquee-item">Azure</span><span class="marquee-star">✦</span><span class="marquee-item">Snowflake</span><span class="marquee-star">✦</span><span class="marquee-item">dbt</span><span class="marquee-star">✦</span><span class="marquee-item">Zapier</span><span class="marquee-star">✦</span><span class="marquee-item">Databricks</span><span class="marquee-star">✦</span><span class="marquee-item">Airbyte</span><span class="marquee-star">✦</span><span class="marquee-item">AWS</span><span class="marquee-star">✦</span><span class="marquee-item">S3</span><span class="marquee-star">✦</span><span class="marquee-item">Redshift</span><span class="marquee-star">✦</span>
+      <span class="marquee-item">Excel</span><span class="marquee-star">✦</span><span class="marquee-item">SQL</span><span class="marquee-star">✦</span><span class="marquee-item">Power BI</span><span class="marquee-star">✦</span><span class="marquee-item">Tableau</span><span class="marquee-star">✦</span><span class="marquee-item">Looker Studio</span><span class="marquee-star">✦</span><span class="marquee-item">Metabase</span><span class="marquee-star">✦</span><span class="marquee-item">Redash</span><span class="marquee-star">✦</span><span class="marquee-item">n8n</span><span class="marquee-star">✦</span><span class="marquee-item">Python</span><span class="marquee-star">✦</span><span class="marquee-item">Azure</span><span class="marquee-star">✦</span><span class="marquee-item">Snowflake</span><span class="marquee-star">✦</span><span class="marquee-item">dbt</span><span class="marquee-star">✦</span><span class="marquee-item">Zapier</span><span class="marquee-star">✦</span><span class="marquee-item">Databricks</span><span class="marquee-star">✦</span><span class="marquee-item">Airbyte</span><span class="marquee-star">✦</span><span class="marquee-item">AWS</span><span class="marquee-star">✦</span><span class="marquee-item">S3</span><span class="marquee-star">✦</span><span class="marquee-item">Redshift</span><span class="marquee-star">✦</span>
+    </div>
+  </div>
+
+  <hr class="rule" />
+
+  <!-- What I Do -->
+  <section id="whatido" class="section-wrap">
+    <div class="whatido-grid">
+      <div class="whatido-copy reveal">
+        <div class="s-label">What I Deliver with Data</div>
+        <h2 class="s-heading">From Raw Data to <span>Business Decisions</span></h2>
+        <p style="margin-top:1.5rem;">I help businesses turn raw data into clear, actionable insights that drive better decisions.
+        From building data pipelines and designing databases to creating dashboards and automating reporting, I focus on making data reliable, accessible, and useful.
+        My work reduces manual effort, improves reporting speed, and helps teams operate with confidence using real data.</p>
+        <a href="#projects">See my projects <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="services-grid reveal">
+        <div class="svc">
+          <div class="svc-num">01</div>
+          <div class="svc-name">Turning data &amp;<br>Into clear business impact</div>
+        </div>
+        <div class="svc">
+          <div class="svc-num">02</div>
+          <div class="svc-name">Dashboard built<br>for real decision making</div>
+        </div>
+        <div class="svc">
+          <div class="svc-num">03</div>
+          <div class="svc-name">Reliable data pipelines<br>&amp; and workflows</div>
+        </div>
+        <div class="svc">
+          <div class="svc-num">04</div>
+          <div class="svc-name">Optimized and <br>&amp; scalable data structures</div>
+        </div>
+        <div class="svc">
+          <div class="svc-num">05</div>
+          <div class="svc-name">Reducing manual work<br>through automation</div>
+        </div>
+        <div class="svc">
+          <div class="svc-num">06</div>
+          <div class="svc-name">Helping others build<br>&amp; real data skills</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- Projects -->
+  <section id="projects" class="section-wrap">
+    <div class="proj-header">
+      <div>
+        <div class="s-label">Portfolio</div>
+        <h2 class="s-heading">Selected <span>Projects</span></h2>
+      </div>
+      <a href="https://github.com/NStanley0524" target="_blank">See all on GitHub →</a>
+    </div>
+
+    <!-- Featured -->
+    <div class="feat-wrap reveal">
+      <div class="feat-img">
+        <img src="images/Database.jpg" alt="Financial Database" />
+      </div>
+      <div class="feat-body">
+        <div class="p-tag">⭐ Featured · SQL Engineering</div>
+        <h3 class="p-title">Financial Database Management System</h3>
+        <p class="p-desc">Designed and built a comprehensive financial database from the ground up using SQL — engineered for fast retrieval, complex querying, and clean reporting. The system handles multi-dimensional financial transactions and produces analysis-ready outputs for decision-makers.</p>
+        <div class="p-tools">
+          <span class="ptag">SQL</span>
+          <span class="ptag">Data Modeling</span>
+          <span class="ptag">Triggers</span>
+          <span class="ptag">Stored Procedures</span>
+          <span class="ptag">Query Optimization</span>
+        </div>
+        <a href="https://github.com/NStanley0524/Financial_Database_Management_SQL" target="_blank" class="p-link">View on GitHub <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <!-- Project rows -->
+    <div class="proj-row reveal">
+      <div class="pr-img"><img src="images/customer-segmentation-social.png" alt="Customer Segmentation" /></div>
+      <div>
+        <div class="pr-tag">Python · Machine Learning</div>
+        <div class="pr-title">Customer Segmentation Analysis</div>
+        <div class="pr-desc">Applied K-Means clustering to identify high-value customer groups from raw behavioral data...enabling businesses to stop guessing and start targeting with precision.</div>
+        <div class="pr-tools"><span class="ptag">Python</span><span class="ptag">Scikit-learn</span><span class="ptag">K-Means</span><span class="ptag">Pandas</span></div>
+      </div>
+      <a href="https://github.com/NStanley0524/Customer_Segmentation_Analysis_Python" target="_blank" class="pr-arrow"><i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="proj-row reveal">
+      <div class="pr-img"><img src="images/Stock Market Analytics.jpg" alt="Stock Analytics" /></div>
+      <div>
+        <div class="pr-tag">Python · Automation</div>
+        <div class="pr-title">Automated Stock Market Analytics Pipeline</div>
+        <div class="pr-desc">Built an end-to-end automation pipeline that scrapes live Yahoo Finance data and generates dynamic Excel dashboards in real time...cutting manual reporting effort by 80%.</div>
+        <div class="pr-tools"><span class="ptag">Python</span><span class="ptag">BeautifulSoup</span><span class="ptag">OpenPyXL</span><span class="ptag">Excel</span></div>
+      </div>
+      <a href="https://github.com/NStanley0524/Stock_Data_Automation_Python" target="_blank" class="pr-arrow"><i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="proj-row reveal">
+      <div class="pr-img"><img src="images/Hospital Analytics2.png" alt="Healthcare Analytics" /></div>
+      <div>
+        <div class="pr-tag">Power BI · Healthcare</div>
+        <div class="pr-title">Healthcare Operations &amp; Efficiency Analytics</div>
+        <div class="pr-desc">Delivered a full-stack Power BI solution for hospital operations...tracking patient flow, departmental KPIs, doctor performance, and treatment outcomes across a clean dimensional model.</div>
+        <div class="pr-tools"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Power Query</span><span class="ptag">Data Modeling</span></div>
+      </div>
+      <a href="https://github.com/NStanley0524/Healthcare_Analytics_Power_BI" target="_blank" class="pr-arrow"><i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div class="proj-row reveal">
+      <div class="pr-img"><img src="images/EduTech Analytics.jpeg" alt="EdTech Analytics" /></div>
+      <div>
+        <div class="pr-tag">Power BI · Education</div>
+        <div class="pr-title">Student &amp; Course Performance Analytics</div>
+        <div class="pr-desc">End-to-end BI solution tracking student lifecycle, instructor performance, course completion, and revenue across an EdTech platform — turning raw LMS data into institutional intelligence.</div>
+        <div class="pr-tools"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Data Modeling</span><span class="ptag">EdTech</span></div>
+      </div>
+      <a href="https://github.com/NStanley0524/EduTech_Analytics_Power_BI" target="_blank" class="pr-arrow"><i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- About -->
+  <section id="about" class="section-wrap alt" style="padding:5vw; padding-left: 5vw; padding-right: 5vw;">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="s-label">About Me</div>
+        <h2 class="s-heading">Data & BI Analyst.<br><span>Skilled. Proven.</span> Ready.</h2>
+        <p style="margin-top:1.5rem;">I'm Nwajagu Stanley Ifeanyi, a Senior Data Analyst with 4+ years of experience delivering high-impact analytics solutions. I've worked across healthcare, retail, fintech, marketing and education, building data products that organizations genuinely depend on to operate and grow.</p>
+        <p>I work across the full data lifecycle, from designing clean data models and building pipelines to delivering dashboards that decision-makers actually use. My focus is always the same:<strong>making data reliable, accessible and useful</strong>.</p>
+        <p>Beyond technical delivery, I've trained <strong>500+ data professionals</strong> in SQL, Python, Power BI, and analytics fundamentals. That experience sharpens everything — my communication, my documentation, my ability to align technical work with business goals.</p>
+        <div class="about-list">
+          <div class="ahl"><i class="fas fa-layer-group"></i><div class="ahl-text"><strong>Full-Stack Data Work</strong>From raw SQL to pipelines to decision-ready dashboards</div></div>
+          <div class="ahl"><i class="fas fa-industry"></i><div class="ahl-text"><strong>Multi-Industry Experience</strong>Healthcare, Retail, Marketing, Fintech, EdTech</div></div>
+          <div class="ahl"><i class="fas fa-graduation-cap"></i><div class="ahl-text"><strong>500+ Professionals Trained</strong>SQL, Python, Power BI, Excel — all levels</div></div>
+          <div class="ahl"><i class="fas fa-robot"></i><div class="ahl-text"><strong>Automation-First Mindset</strong>Building systems that run without manual effort</div></div>
+        </div>
+        <div class="about-actions">
+          <a href="#contact" class="btn-fill"><i class="fas fa-envelope"></i> Let's Talk</a>
+          <a href="https://github.com/NStanley0524" target="_blank" class="btn-line"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+      </div>
+      <div class="about-img-col">
+        <img src="images/ALV07899.jpg" alt="Stanley Nwajagu" />
+        <div class="about-badge">
+          <span class="big">4+</span>
+          <span class="sml">Years delivering<br>data solutions</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- Contact -->
+  <section id="contact" class="section-wrap">
+    <div class="s-label">Get in Touch</div>
+    <h2 class="s-heading">Let's <span>work together.</span></h2>
+    <p class="s-sub">I’m open to full-time roles and high-impact projects where I can help teams turn data into clear, actionable decisions.</p>
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="c-item"><i class="fas fa-map-marker-alt"></i><span>Lagos, Nigeria</span></div>
+        <div class="c-item"><i class="fas fa-phone"></i><a href="tel:+2348130251501">(+234) 8130-2515-01</a></div>
+        <div class="c-item"><i class="fas fa-envelope"></i><a href="mailto:nwajagustanley@gmail.com">nwajagustanley@gmail.com</a></div>
+        <div class="c-item" style="border-bottom:none;"><i class="fab fa-github"></i><a href="https://github.com/NStanley0524" target="_blank">github.com/NStanley0524</a></div>
+        <div class="social-row">
+          <a href="http://www.linkedin.com/in/stanley-nwajagu" target="_blank" class="soc-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://github.com/NStanley0524" target="_blank" class="soc-btn"><i class="fab fa-github"></i></a>
+          <a href="https://x.com/dataworm_xlsx" target="_blank" class="soc-btn"><i class="fab fa-x-twitter"></i></a>
+          <a href="mailto:nwajagustanley@gmail.com" class="soc-btn"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="form-row2">
+          <div class="form-group"><label>Name</label><input type="text" placeholder="Stanley Nwajagu" /></div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="nwajagustanley@gmail.com" /></div>
+        </div>
+        <div class="form-group"><label>Subject</label><input type="text" placeholder="What can I help you with?" /></div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Briefly describe your project or need..."></textarea></div>
+        <button class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="foot-brand">Stanley <span>Nwajagu</span></div>
+    <div class="foot-links">
+      <a href="#whatido">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="foot-copy">&copy; 2026 · All rights reserved</div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
 </html>
