@@ -136,6 +136,7 @@
     .pr-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
     .pr-tools { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.6rem; }
     .pr-arrow { color: var(--muted); font-size: 1rem; transition: color 0.2s, transform 0.2s; flex-shrink: 0; }
+    .pr-link {display: none;margin-top: 10px;font-size: 0.75rem;font-weight: 700;letter-spacing: 0.12em;text-transform: uppercase;color: var(--accent);}
     .proj-row:hover .pr-arrow { color: var(--accent); transform: translateX(4px); }
 
     /* ── About ── */
@@ -206,6 +207,7 @@
       .proj-row { grid-template-columns: 1fr; }
       .pr-img { width: 100%; height: 200px; }
       .pr-arrow { display: none; }
+      .pr-link { display: inline-flex; }
     }
     @media (max-width: 768px) {
       nav { padding: 1rem 5vw; }
@@ -403,7 +405,9 @@
         <div class="pr-desc">Applied K-Means clustering to identify high-value customer groups from raw behavioral data...enabling businesses to stop guessing and start targeting with precision.</div>
         <div class="pr-tools"><span class="ptag">Python</span><span class="ptag">Scikit-learn</span><span class="ptag">K-Means</span><span class="ptag">Pandas</span></div>
       </div>
-      <a href="https://github.com/NStanley0524/Customer_Segmentation_Analysis_Python" target="_blank" class="pr-arrow"><i class="fas fa-arrow-right"></i></a>
+      <a href="https://github.com/NStanley0524/Customer_Segmentation_Analysis_Python" target="_blank" class="pr-link">
+        View on GitHub →
+      </a>
     </div>
 
     <div class="proj-row reveal">
@@ -414,7 +418,8 @@
         <div class="pr-desc">Built an end-to-end automation pipeline that scrapes live Yahoo Finance data and generates dynamic Excel dashboards in real time...cutting manual reporting effort by 80%.</div>
         <div class="pr-tools"><span class="ptag">Python</span><span class="ptag">BeautifulSoup</span><span class="ptag">OpenPyXL</span><span class="ptag">Excel</span></div>
       </div>
-      <a href="https://github.com/NStanley0524/Stock_Data_Automation_Python" target="_blank" class="pr-arrow"><i class="fas fa-arrow-right"></i></a>
+      <a href="https://github.com/NStanley0524/Stock_Data_Automation_Python" target="_blank" class="pr-link">
+        View on GitHub →</a>
     </div>
 
     <div class="proj-row reveal">
@@ -425,7 +430,9 @@
         <div class="pr-desc">Delivered a full-stack Power BI solution for hospital operations...tracking patient flow, departmental KPIs, doctor performance, and treatment outcomes across a clean dimensional model.</div>
         <div class="pr-tools"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Power Query</span><span class="ptag">Data Modeling</span></div>
       </div>
-      <a href="https://github.com/NStanley0524/Healthcare_Analytics_Power_BI" target="_blank" class="pr-arrow"><i class="fas fa-arrow-right"></i></a>
+      <a href="https://github.com/NStanley0524/Healthcare_Analytics_Power_BI" target="_blank" class="pr-link">
+        View on GitHub →
+      </a>
     </div>
 
     <div class="proj-row reveal">
@@ -436,7 +443,9 @@
         <div class="pr-desc">End-to-end BI solution tracking student lifecycle, instructor performance, course completion, and revenue across an EdTech platform — turning raw LMS data into institutional intelligence.</div>
         <div class="pr-tools"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Data Modeling</span><span class="ptag">EdTech</span></div>
       </div>
-      <a href="https://github.com/NStanley0524/EduTech_Analytics_Power_BI" target="_blank" class="pr-arrow"><i class="fas fa-arrow-right"></i></a>
+      <a href="https://github.com/NStanley0524/EduTech_Analytics_Power_BI" target="_blank" class="pr-link">
+        View on GitHub →
+      </a>
     </div>
   </section>
 
