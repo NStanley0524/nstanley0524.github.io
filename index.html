@@ -125,7 +125,7 @@
     .ptag { font-family: var(--mono); font-size: 0.68rem; padding: 0.22rem 0.6rem; border: 1px solid var(--line); color: var(--muted); border-radius: 2px; }
     .p-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); transition: gap 0.2s; }
     .p-link:hover { gap: 0.9rem; }
-    .proj-row { display: grid; grid-template-columns: 220px 1fr 40px; align-items: center; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--line); transition: padding 0.2s, background 0.2s; }
+    .proj-row { display: grid; grid-template-columns: 220px 1fr auto; align-items: center; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--line); transition: padding 0.2s, background 0.2s; }
     .proj-row:last-child { border-bottom: none; }
     .proj-row:hover { background: var(--bg2); padding-left: 1rem; padding-right: 1rem; margin: 0 -1rem; }
     .pr-img { width: 220px; height: 138px; overflow: hidden; border-radius: 3px; flex-shrink: 0; }
@@ -136,7 +136,7 @@
     .pr-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
     .pr-tools { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.6rem; }
     .pr-arrow { color: var(--muted); font-size: 1rem; transition: color 0.2s, transform 0.2s; flex-shrink: 0; }
-    .pr-link {display: none;margin-top: 10px;font-size: 0.75rem;font-weight: 700;letter-spacing: 0.12em;text-transform: uppercase;color: var(--accent);}
+    .pr-link {display: inline-flex; align-items: center; justify-self: end; margin-top: 10px;font-size: 0.75rem;font-weight: 700;letter-spacing: 0.12em;text-transform: uppercase;color: var(--accent);}
     .proj-row:hover .pr-arrow { color: var(--accent); transform: translateX(4px); }
 
     /* ── About ── */
@@ -404,11 +404,11 @@
         <div class="pr-title">Customer Segmentation Analysis</div>
         <div class="pr-desc">Applied K-Means clustering to identify high-value customer groups from raw behavioral data...enabling businesses to stop guessing and start targeting with precision.</div>
         <div class="pr-tools"><span class="ptag">Python</span><span class="ptag">Scikit-learn</span><span class="ptag">K-Means</span><span class="ptag">Pandas</span></div>
-      </div>
-      <a href="https://github.com/NStanley0524/Customer_Segmentation_Analysis_Python" target="_blank" class="pr-link">
-        View on GitHub →
-      </a>
-    </div>
+              <a href="https://github.com/NStanley0524/Customer_Segmentation_Analysis_Python" target="_blank" class="pr-link">
+                View on GitHub →
+              </a>
+            </div>
+          </div>
 
     <div class="proj-row reveal">
       <div class="pr-img"><img src="images/Stock Market Analytics.jpg" alt="Stock Analytics" /></div>
@@ -417,10 +417,11 @@
         <div class="pr-title">Automated Stock Market Analytics Pipeline</div>
         <div class="pr-desc">Built an end-to-end automation pipeline that scrapes live Yahoo Finance data and generates dynamic Excel dashboards in real time...cutting manual reporting effort by 80%.</div>
         <div class="pr-tools"><span class="ptag">Python</span><span class="ptag">BeautifulSoup</span><span class="ptag">OpenPyXL</span><span class="ptag">Excel</span></div>
-      </div>
-      <a href="https://github.com/NStanley0524/Stock_Data_Automation_Python" target="_blank" class="pr-link">
-        View on GitHub →</a>
-    </div>
+              <a href="https://github.com/NStanley0524/Stock_Data_Automation_Python" target="_blank" class="pr-link">
+                View on GitHub →
+              </a>
+            </div>
+          </div>
 
     <div class="proj-row reveal">
       <div class="pr-img"><img src="images/Hospital Analytics2.png" alt="Healthcare Analytics" /></div>
@@ -429,24 +430,24 @@
         <div class="pr-title">Healthcare Operations &amp; Efficiency Analytics</div>
         <div class="pr-desc">Delivered a full-stack Power BI solution for hospital operations...tracking patient flow, departmental KPIs, doctor performance, and treatment outcomes across a clean dimensional model.</div>
         <div class="pr-tools"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Power Query</span><span class="ptag">Data Modeling</span></div>
-      </div>
-      <a href="https://github.com/NStanley0524/Healthcare_Analytics_Power_BI" target="_blank" class="pr-link">
-        View on GitHub →
-      </a>
-    </div>
+              <a href="https://github.com/NStanley0524/Healthcare_Analytics_Power_BI" target="_blank" class="pr-link">
+                View on GitHub →
+              </a>
+            </div>
+          </div>
 
     <div class="proj-row reveal">
       <div class="pr-img"><img src="images/EduTech Analytics.jpeg" alt="EdTech Analytics" /></div>
       <div>
-        <div class="pr-tag">Power BI · Education</div>
+        <div class="pr-tag">Power BI · Edutech</div>
         <div class="pr-title">Student &amp; Course Performance Analytics</div>
         <div class="pr-desc">End-to-end BI solution tracking student lifecycle, instructor performance, course completion, and revenue across an EdTech platform — turning raw LMS data into institutional intelligence.</div>
         <div class="pr-tools"><span class="ptag">Power BI</span><span class="ptag">DAX</span><span class="ptag">Data Modeling</span><span class="ptag">EdTech</span></div>
-      </div>
-      <a href="https://github.com/NStanley0524/EduTech_Analytics_Power_BI" target="_blank" class="pr-link">
-        View on GitHub →
-      </a>
-    </div>
+              <a href="https://github.com/NStanley0524/EduTech_Analytics_Power_BI" target="_blank" class="pr-link">
+                View on GitHub →
+              </a>
+            </div>
+          </div>
   </section>
 
   <hr class="rule" />
